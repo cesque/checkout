@@ -1,7 +1,6 @@
 {
-  "name": "gitfuzz",
+  "name": "@cesque/checkout",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +16,7 @@
     "cli-select": "^1.1.1",
     "command-line-args": "^5.1.1",
     "fuse.js": "^3.4.6"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
