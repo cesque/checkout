@@ -8,7 +8,9 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "checkout": "./index.js"
+    "checkout": "./checkout.js",
+    "merge": "./merge.js",
+    "fuzz": "./fuzz.js"
   },
   "dependencies": {
     "chalk": "^3.0.0",
