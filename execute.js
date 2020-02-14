@@ -27,11 +27,6 @@ module.exports = async (branch, merge, force) => {
     
         let fuse = new Fuse(options, fuseOpts)
         let searchResults = fuse.search(branch)
-
-        if(searchResults.length == 0) {
-            console.error(chalk.red('no matching branches found'))
-            process.exit(1)
-        }
     
         searchResults.sort((a,b) => {
             if(a.score == b.score) return a.item.branch.length - b.item.branch.length
@@ -43,6 +38,11 @@ module.exports = async (branch, merge, force) => {
             .filter(x => x.score < 0.4)
             .slice(0, 10)
             .map(x => x.item.branch)
+
+        if(options.length == 0) {
+            console.error(chalk.red('no matching branches found'))
+            process.exit(1)
+        }
     
         let selected = ''
         if(force) {
