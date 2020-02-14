@@ -10,6 +10,7 @@ module.exports = async (branch, merge, force) => {
             .split('\n')
             .map(x => x.replace('*','').trim())
             .map(x => {return {branch: x}})
+
         
         let fuseOpts = {
             shouldSort: true,
@@ -26,6 +27,11 @@ module.exports = async (branch, merge, force) => {
     
         let fuse = new Fuse(options, fuseOpts)
         let searchResults = fuse.search(branch)
+
+        if(searchResults.length == 0) {
+            console.error(chalk.red('no matching branches found'))
+            process.exit(1)
+        }
     
         searchResults.sort((a,b) => {
             if(a.score == b.score) return a.item.branch.length - b.item.branch.length
@@ -72,12 +78,13 @@ module.exports = async (branch, merge, force) => {
     
     if(!branch) {
         console.error(chalk.red('no branch name provided'))
-        process.exit()
+        process.exit(1)
     }
     
     try {
         await start(list, branch, merge, force)
     } catch(e) {
         // if(e) console.error(e)
+        process.exit(1)
     }
 }

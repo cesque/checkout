@@ -1,6 +1,6 @@
 {
   "name": "@cesque/checkout",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,9 +8,9 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "checkout": "./checkout.js",
-    "merge": "./merge.js",
-    "fuzz": "./fuzz.js"
+    "checkout": "./commands/checkout.js",
+    "merge": "./commands/merge.js",
+    "fuzz": "./commands/fuzz.js"
   },
   "dependencies": {
     "chalk": "^3.0.0",
